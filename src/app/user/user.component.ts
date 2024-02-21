@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from "./services/user.service";
 
 @Component({
   selector: 'app-user',
@@ -6,6 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
+  username: string ='';
+  password: string ='';
+  messages: Array<any> = [];
+  constructor(
+    private  service: UserService
+  ){
+    this.messages=this.service.getAllMessage();
+  }
 
 
+  onlogin() {
+    console.log(this.username)
+
+  }
 }
